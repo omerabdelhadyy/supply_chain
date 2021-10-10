@@ -1,0 +1,53 @@
+.continer {
+  margin-top: 2%;
+  width: 30%;
+  /* background-color: rgb(196, 189, 189); */
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-radius: 10px;
+  color: #000;
+  border: solid;
+  border-width: 4px;
+  border-color: rgb(196, 189, 189);
+}
+.continer h1 {
+  /* margin: 0%; */
+  /* padding: 0%; */
+  font-size: 17px;
+}
+.quantity {
+  /* background-color: red; */
+  /* color: red; */
+  margin-left: 30%;
+}
+.edit {
+  color: #67676b;
+  cursor: pointer;
+  /* background-color: #67676b; */
+  padding: 4px;
+  padding-inline: 10px;
+  border-radius: 7px;
+  text-transform: uppercase;
+  border: solid;
+  border-width: 2px;
+  border-color: #67676b;
+}
+.inputEdit {
+  margin-left: 30%;
+  height: 20px;
+  width: 60px;
+  font-size: 17px;
+  color: #000;
+  font-weight: 600;
+  align-items: "center";
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  /* background-color: rgb(167, 154, 154); */
+  border-width: 0px;
+  border: solid;
+  border-width: 2px;
+  border-color: #67676b;
+}

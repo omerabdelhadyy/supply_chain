@@ -6,10 +6,10 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 export default function SelectLabels() {
-  const [age, setAge] = React.useState("");
+  const [type, setType] = React.useState("");
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setType(event.target.value);
   };
 
   return (
@@ -19,7 +19,7 @@ export default function SelectLabels() {
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
-          value={age}
+          value={type}
           label="Age"
           onChange={handleChange}
         >

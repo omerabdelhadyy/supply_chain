@@ -1,0 +1,16 @@
+.continer {
+  padding-inline: 2%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+}
+.divCards {
+  margin-top: 3%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

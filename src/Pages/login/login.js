@@ -30,7 +30,7 @@ export const login = (props) => {
             >
               <ButtonMaterial
                 text="LOGIN"
-                onClick={() => props?.history?.push?.("login")}
+                onClick={() => props?.history?.push?.("home")}
               />
             </div>
           </div>
