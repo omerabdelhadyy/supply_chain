@@ -15,7 +15,7 @@ export default function SelectLabels() {
   return (
     <div>
       <FormControl sx={{ width: "100%" }}>
-        <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+        <InputLabel id="demo-simple-select-helper-label">type</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
@@ -23,12 +23,12 @@ export default function SelectLabels() {
           label="Age"
           onChange={handleChange}
         >
-          <MenuItem value="">
+          {/* <MenuItem value="">
             <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          </MenuItem> */}
+          <MenuItem value={10}>supplier</MenuItem>
+          <MenuItem value={20}>producer</MenuItem>
+          <MenuItem value={30}>retailer</MenuItem>
         </Select>
         {/* <FormHelperText>With label + helper text</FormHelperText> */}
       </FormControl>
