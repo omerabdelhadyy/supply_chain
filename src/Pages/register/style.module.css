@@ -1,0 +1,62 @@
+/* html {
+  height: 0%;
+} */
+.continer {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #1f2071;
+  align-items: center;
+  justify-content: center;
+}
+.leftdiv {
+  background-color: #cbe4fe;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.divcontent {
+  background-color: #fff;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  margin-left: 50%;
+  border-radius: 20px;
+}
+.rightContent {
+  width: 50%;
+  height: 100%;
+  background-color: #e6f2ff;
+  float: right;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.divcontent h1 {
+  width: fit-content;
+  /* background-color: red; */
+}
+.leftContent {
+  /* background-color: red; */
+  width: 50%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* padding-top: 5%; */
+  /* margin-top: 10px; */
+  height: 100%;
+}
+.textWelcome {
+  margin-top: 20px;
+}
+.imageCover {
+  width: 75%;
+  position: absolute;
+  left: 40%;
+  top: 0px;
+  border-radius: 20px;
+}
