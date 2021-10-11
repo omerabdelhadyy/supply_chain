@@ -22,9 +22,12 @@
   font-size: 18px;
   margin-inline: 20px;
   cursor: pointer;
+  transition-duration: 0.3s;
 }
 .headerScreen h1:hover {
   color: #1f1745;
+  transform: translateX(5px);
+
   /* position: absolute; */
-  margin-top: -2px;
+  /* margin-top: -2px; */
 }

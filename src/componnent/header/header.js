@@ -13,20 +13,25 @@ export const Header = (props) => {
       </h1>
       <div className={style.headerScreen}>
         <h1
-          style={{ color: props.title == "home" ? "#0E147F" : null }}
+          style={{ color: props.title == "home" ? "#9592A3" : null }}
           onClick={() => props?.history?.push?.("home")}
         >
           Home
         </h1>
         <h1
           onClick={() => props?.history?.push?.("MyProduct")}
-          style={{ color: props.title == "MyProduct" ? "#0E147F" : null }}
+          style={{ color: props.title == "MyProduct" ? "#9592A3" : null }}
         >
           My products
         </h1>
-        <h1>product offer</h1>
         <h1
-          style={{ color: props.title == "create" ? "#0E147F" : null }}
+          onClick={() => props?.history?.push?.("request")}
+          style={{ color: props.title == "request" ? "#9592A3" : null }}
+        >
+          Product request
+        </h1>
+        <h1
+          style={{ color: props.title == "create" ? "#9592A3" : null }}
           onClick={() => props?.history?.push?.("Create")}
         >
           Create product
