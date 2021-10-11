@@ -14,6 +14,20 @@
   /* background-color: red; */
   width: fit-content;
   cursor: pointer;
+  animation-name: example;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  transition-duration: 2s;
+}
+@keyframes example {
+  0% {
+    color: rgb(255, 255, 0);
+    /* transform: translateX(5px); */
+  }
+  50% {
+    color: red;
+    /* transform: translateX(-5px); */
+  }
 }
 .headerScreen {
   display: flex;
