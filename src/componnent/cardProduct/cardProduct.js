@@ -16,7 +16,6 @@ export const CardProduct = () => {
       {edit ? (
         <ClickAwayListener onClickAway={onClickAway}>
           <input
-            onCut={() => console.log("ome")}
             autoFocus={true}
             min={200}
             defaultValue={200}
