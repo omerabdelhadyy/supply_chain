@@ -22,6 +22,10 @@ export const Home = (props) => {
   ]);
   const [select, setSelect] = useState(null);
   const [editNumber, seteditNumber] = useState(false);
+  const [numberSelect, setnumberSelect] = useState(false);
+  useEffect(() => {
+    setnumberSelect(1);
+  }, [select]);
   return (
     <>
       <Header title="home" history={props?.history} />
@@ -53,11 +57,12 @@ export const Home = (props) => {
                   type="number"
                   // style={{ marginBlock: 20 }}
                   className={style.numberInput}
-                  defaultValue={select?.number}
+                  defaultValue={numberSelect || 1}
                   // value={select?.number}
+                  onChange={(text) => setnumberSelect(text?.target.value)}
                 />
               ) : (
-                <h1>{select?.number}</h1>
+                <h1>{numberSelect || 1}</h1>
               )}
 
               <div
@@ -73,7 +78,7 @@ export const Home = (props) => {
               </div>
             </div>
           </ClickAwayListener>
-          <button className={style.clickSend}> button here</button>
+          <button className={style.clickSend}>request</button>
         </div>
       )}
     </>
