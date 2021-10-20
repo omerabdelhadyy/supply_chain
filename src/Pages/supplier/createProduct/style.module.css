@@ -26,3 +26,11 @@ body {
   cursor: pointer;
   display: flex;
 }
+.errorMessage {
+  margin: 0%;
+  padding: 0%;
+  font-size: 15px;
+  color: red;
+  margin-bottom: 10px;
+  text-align: center;
+}

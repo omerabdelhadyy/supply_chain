@@ -1,18 +1,17 @@
 import axios from "axios";
 import { getItem } from "./storage";
 
-export const post = async (url, requestData) => {
+export const postService = async (url, requestData) => {
   const userData = await getItem("userData");
-
   // console.log("ddd", userData?.token);
-  return axios.post(`http://35.172.137.48:3000/${url}`, requestData, {
+  return axios.post(`http://3.237.61.22:8080/${url}`, requestData, {
     headers: { Authorization: userData?.token },
   });
 };
-export const get = async (url, requestData) => {
+export const getService = async (url, requestData) => {
   const userData = await getItem("userData");
   return axios.get(
-    `http://35.172.137.48:3000/${url}`,
+    `http://3.237.61.22:8080/${url}`,
     { headers: { Authorization: userData?.token } },
     requestData
   );

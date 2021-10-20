@@ -4,6 +4,7 @@ import { SupplierProduct } from "../../componnent/supplierProduct/supplierProduc
 import style from "./style.module.css";
 import EditIcon from "@mui/icons-material/Edit";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
+import { getItem } from "../../services/storage";
 
 export const Home = (props) => {
   const [dataa, setDataa] = useState([
@@ -23,7 +24,8 @@ export const Home = (props) => {
   const [select, setSelect] = useState(null);
   const [editNumber, seteditNumber] = useState(false);
   const [numberSelect, setnumberSelect] = useState(false);
-  useEffect(() => {
+  useEffect(async () => {
+    // console.log(await getItem("userData"));
     setnumberSelect(1);
   }, [select]);
   return (

@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "../register/style.module.css";
 import { ButtonMaterial } from "../../componnent/button";
 import { InputField } from "../../componnent/input";
 import Cover from "../../assets/image/cover.png";
+import { postService } from "../../services/axios";
+import { setItem } from "../../services/storage";
 
-export const login = (props) => {
+export const Login = (props) => {
+  const [dataa, setData] = useState({
+    email: "",
+    password: "",
+  });
+  const [errorMessage, seterrorMessage] = useState(false);
+
+  const sendRequseLogin = () => {
+    postService("auth/login", dataa)
+      .then((res) => {
+        setItem("userData", res?.data?.data);
+        console.log("res", res?.data?.data);
+        props?.history?.push?.("home");
+      })
+      .catch((error) => {
+        console.log(error?.response?.data);
+        seterrorMessage(error?.response?.data.message);
+      });
+  };
+
   return (
     <div className={style.continer}>
       <div className={style.leftdiv}>
@@ -17,8 +38,22 @@ export const login = (props) => {
               Supply chain
             </h1>
             <h1 className={style.textWelcome}>Welcome back</h1>
-            <InputField placeholder="Email" />
-            <InputField placeholder="password" />
+            <InputField
+              placeholder="Email"
+              onChange={(email) => {
+                setData({ ...dataa, email });
+              }}
+            />
+            <InputField
+              type="password"
+              placeholder="password"
+              onChange={(password) => {
+                setData({ ...dataa, password });
+              }}
+            />
+            {errorMessage && (
+              <h2 className={style.errorMessage}>{errorMessage}</h2>
+            )}
             <div
               style={{
                 marginTop: 15,
@@ -28,10 +63,7 @@ export const login = (props) => {
                 justifyContent: "center",
               }}
             >
-              <ButtonMaterial
-                text="LOGIN"
-                onClick={() => props?.history?.push?.("home")}
-              />
+              <ButtonMaterial text="LOGIN" onClick={() => sendRequseLogin()} />
             </div>
           </div>
         </div>

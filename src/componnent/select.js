@@ -5,12 +5,16 @@ import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function SelectLabels() {
+export default function SelectLabels(props) {
   const [type, setType] = React.useState("");
 
   const handleChange = (event) => {
     setType(event.target.value);
   };
+
+  React.useEffect(() => {
+    props.onChange(type);
+  }, [type]);
 
   return (
     <div>
@@ -26,9 +30,9 @@ export default function SelectLabels() {
           {/* <MenuItem value="">
             <em>None</em>
           </MenuItem> */}
-          <MenuItem value={10}>supplier</MenuItem>
-          <MenuItem value={20}>producer</MenuItem>
-          <MenuItem value={30}>retailer</MenuItem>
+          <MenuItem value={"supplier"}>supplier</MenuItem>
+          <MenuItem value={"producer"}>producer</MenuItem>
+          <MenuItem value={"retailer"}>retailer</MenuItem>
         </Select>
         {/* <FormHelperText>With label + helper text</FormHelperText> */}
       </FormControl>

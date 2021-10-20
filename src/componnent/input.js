@@ -9,14 +9,15 @@ export const InputField = (props) => {
       type={props?.type}
       label={props?.placeholder}
       style={{ width: props?.width ? props?.width : "80%", marginTop: 20 }}
-      onChange={(test) => setDate(test.target.value)}
+      onChange={(test) => props?.onChange?.(test.target.value)}
       InputLabelProps={{ shrink: true, required: true }}
     />
   ) : (
     <TextField
+      type={props?.type}
       label={props?.placeholder}
       style={{ width: props?.width ? props?.width : "80%", marginTop: 20 }}
-      // onChange={(test) => setDate(test.target.value)}
+      onChange={(test) => props?.onChange?.(test.target.value)}
     />
   );
 };

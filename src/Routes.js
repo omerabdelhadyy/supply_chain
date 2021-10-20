@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import { register } from "./Pages/register/register";
-import { login } from "./Pages/login/login";
+import { Register } from "./Pages/register/register";
+import { Login } from "./Pages/login/login";
 import { Home } from "./Pages/home/home";
 import { CreateProduct } from "./Pages/supplier/createProduct/createProduct";
 import { MyProduct } from "./Pages/supplier/myProducts/myProducts";
@@ -18,8 +18,8 @@ class Routes extends Component {
           <Route path={"/Create"} component={CreateProduct} />
           // End supplier pages
           <Route path={"/home"} component={Home} />
-          <Route path={"/login"} component={login} />
-          <Route path={"/"} component={register} />
+          <Route path={"/login"} component={Login} />
+          <Route path={"/"} component={Register} />
         </Switch>
       </BrowserRouter>
     );
