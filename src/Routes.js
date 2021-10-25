@@ -6,8 +6,23 @@ import { Home } from "./Pages/home/home";
 import { CreateProduct } from "./Pages/supplier/createProduct/createProduct";
 import { MyProduct } from "./Pages/supplier/myProducts/myProducts";
 import { MyRequest } from "./Pages/myRequest/myRequest";
+import { getItem } from "./services/storage";
 
 class Routes extends Component {
+  constructor() {
+    super();
+    this.state = {
+      redirect: false,
+    };
+  }
+
+  componentDidMount = async () => {
+    if (!(await getItem?.("userData")?.token)) {
+      this.setState({ redirect: true });
+    } else {
+      this.setState({ redirect: false });
+    }
+  };
   render() {
     return (
       <BrowserRouter>
@@ -21,6 +36,7 @@ class Routes extends Component {
           <Route path={"/login"} component={Login} />
           <Route path={"/"} component={Register} />
         </Switch>
+        {this.state.redirect && <Redirect to={"/login"} />}
       </BrowserRouter>
     );
   }

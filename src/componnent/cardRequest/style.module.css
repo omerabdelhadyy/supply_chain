@@ -49,6 +49,7 @@
 }
 .button {
   display: flex;
+  align-items: center;
 }
 
 .buttonAccept:hover {

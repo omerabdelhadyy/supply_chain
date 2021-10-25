@@ -19,6 +19,12 @@
   animation-iteration-count: 1;
   transition-duration: 2s;
 }
+.headerScreen h2 {
+  margin: 0%;
+  padding: 0%;
+  font-size: 20px;
+  /* color: burlywood; */
+}
 @keyframes example {
   0% {
     color: rgb(255, 255, 0);
@@ -31,6 +37,7 @@
 }
 .headerScreen {
   display: flex;
+  align-items: center;
 }
 .headerScreen h1 {
   font-size: 18px;

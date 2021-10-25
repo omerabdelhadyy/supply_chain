@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "../register/style.module.css";
 import { ButtonMaterial } from "../../componnent/button";
 import { InputField } from "../../componnent/input";
 import Cover from "../../assets/image/cover.png";
 import { postService } from "../../services/axios";
 import { setItem } from "../../services/storage";
+import { useHistory } from "react-router-dom";
 
 export const Login = (props) => {
   const [dataa, setData] = useState({
     email: "",
     password: "",
   });
+  const history = useHistory();
   const [errorMessage, seterrorMessage] = useState(false);
+  useEffect(() => {
+    console.log("history", history);
+    // browserHistory.replace("Home");
+  }, []);
 
   const sendRequseLogin = () => {
     postService("auth/login", dataa)
@@ -51,6 +57,16 @@ export const Login = (props) => {
                 setData({ ...dataa, password });
               }}
             />
+            <h1
+              style={{
+                fontSize: 14,
+                // textAlign: "left",
+                // backgroundColor: "red",
+              }}
+              onClick={() => props?.history?.push?.("register")}
+            >
+              I don't have an account : shgn up
+            </h1>
             {errorMessage && (
               <h2 className={style.errorMessage}>{errorMessage}</h2>
             )}
