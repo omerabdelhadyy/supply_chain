@@ -16,13 +16,16 @@ export const CreateProduct = (props) => {
   const [errorMessage, seterrorMessage] = useState(false);
 
   const CreateProduct = () => {
+    seterrorMessage(false);
     postService("product", dataa)
       .then((res) => {
         console.log("res", res?.data?.data);
+        seterrorMessage("It was successfully added.");
       })
       .catch((error) => {
-        console.log(error?.response?.data);
-        seterrorMessage(error?.response?.data.message);
+        console.log(error?.response?.data?.[0]);
+        seterrorMessage("Invalid data");
+        // seterrorMessage(error?.response?.data.message);
       });
     console.log(dataa);
   };
@@ -69,7 +72,16 @@ export const CreateProduct = (props) => {
             setData({ ...dataa, quantity: Number(quantity) });
           }}
         />
-        {errorMessage && <h2 className={style.errorMessage}>{errorMessage}</h2>}
+        {errorMessage && (
+          <h2
+            style={{
+              color: errorMessage.includes("success") ? "green" : "red",
+            }}
+            className={style.errorMessage}
+          >
+            {errorMessage}
+          </h2>
+        )}
         <div
           style={{
             width: "100%",
