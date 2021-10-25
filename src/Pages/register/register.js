@@ -17,7 +17,7 @@ export const Register = (props) => {
   const [errorMessage, seterrorMessage] = useState(false);
 
   useEffect(async () => {
-    if (await getItem("userData").token) {
+    if (await getItem?.("userData")?.token) {
       props?.history?.push?.("home");
     }
   }, []);
