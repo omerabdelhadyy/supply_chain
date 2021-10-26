@@ -5,9 +5,9 @@ import { getService } from "../../services/axios";
 import style from "./style.module.css";
 
 export const MyRequest = (props) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(false);
   useEffect(() => {
-    getService("request/incoming")
+    getService("request/incoming/pending")
       .then((res) => {
         console.log("res", res?.data);
         setData(res?.data?.data);
@@ -21,11 +21,15 @@ export const MyRequest = (props) => {
       <Header title="request" history={props?.history} />
       <div className={style.continer}>
         <h1>my Request</h1>
-        <div className={style.divRequest}>
-          {data?.map((item, index) => {
-            return <CardRequest data={item} index={index} />;
-          })}
-        </div>
+        {data?.length != 0 ? (
+          <div className={style.divRequest}>
+            {data?.map?.((item, index) => {
+              return <CardRequest data={item} index={index} />;
+            })}
+          </div>
+        ) : (
+          <h1 style={{ fontSize: 18, marginTop: "3%" }}>not found request</h1>
+        )}
       </div>
     </>
   );

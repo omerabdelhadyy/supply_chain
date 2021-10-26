@@ -35,7 +35,7 @@ export const CardRequest = (props) => {
 
   return (
     <div className={style.continer}>
-      <h1>name user</h1>
+      <h1>{data?.requesterEmail}</h1>
       <h1>{data?.quantity}</h1>
       <div
         className={style.button}

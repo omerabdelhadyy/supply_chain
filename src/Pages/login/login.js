@@ -27,8 +27,8 @@ export const Login = (props) => {
         props?.history?.push?.("home");
       })
       .catch((error) => {
-        console.log(error?.response?.data);
-        seterrorMessage(error?.response?.data.message);
+        // console.log(error?.response?.data[0]);
+        seterrorMessage(error?.response?.data?.[0]);
       });
   };
 
@@ -44,29 +44,42 @@ export const Login = (props) => {
               Supply chain
             </h1>
             <h1 className={style.textWelcome}>Welcome back</h1>
-            <InputField
-              placeholder="Email"
-              onChange={(email) => {
-                setData({ ...dataa, email });
-              }}
-            />
-            <InputField
-              type="password"
-              placeholder="password"
-              onChange={(password) => {
-                setData({ ...dataa, password });
-              }}
-            />
-            <h1
+            <form
               style={{
-                fontSize: 14,
-                // textAlign: "left",
-                // backgroundColor: "red",
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+                alignItems: "center",
               }}
-              onClick={() => props?.history?.push?.("register")}
+              onKeyPress={(e) => {
+                if (e?.key === "Enter") {
+                  sendRequseLogin?.();
+                }
+              }}
             >
-              I don't have an account : shgn up
-            </h1>
+              <InputField
+                placeholder="Email"
+                onChange={(email) => {
+                  setData({ ...dataa, email });
+                }}
+              />
+              <InputField
+                type="password"
+                placeholder="password"
+                onChange={(password) => {
+                  setData({ ...dataa, password });
+                }}
+              />
+            </form>
+            <h2 className={style.textdontHave}>
+              I don't have an account
+              <span
+                onClick={() => props?.history?.push?.("register")}
+                className={style.textSignUp}
+              >
+                sign up
+              </span>
+            </h2>
             {errorMessage && (
               <h2 className={style.errorMessage}>{errorMessage}</h2>
             )}

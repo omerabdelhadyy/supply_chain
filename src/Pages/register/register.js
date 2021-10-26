@@ -31,7 +31,7 @@ export const Register = (props) => {
       })
       .catch((error) => {
         console.log(error?.response?.data);
-        seterrorMessage(error?.response?.data.message);
+        seterrorMessage(error?.response?.data?.[0]);
       });
 
     // console.log(dataa);
@@ -51,44 +51,73 @@ export const Register = (props) => {
           </div>
           <div className={style.leftContent}>
             <h1 style={{ color: "#0A0965", fontSize: 26 }}>Supply chain</h1>
-            <h1 className={style.textWelcome}>Join us now</h1>
-            <InputField
-              placeholder="user name"
-              onChange={(name) => {
-                setData({ ...dataa, name });
-              }}
-            />
-            <InputField
-              placeholder="Email"
-              onChange={(email) => {
-                setData({ ...dataa, email });
-              }}
-            />
-            <InputField
-              type="password"
-              placeholder="password"
-              onChange={(password) => {
-                setData({ ...dataa, password });
-              }}
-            />
-            <div
+            <h1
+              style={{ marginTop: 5, fontSize: 25 }}
+              className={style.textWelcome}
+            >
+              Join us now
+            </h1>
+            <form
               style={{
-                width: "80%",
-                justifyContent: "center",
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
                 alignItems: "center",
-                marginTop: 20,
+              }}
+              onKeyPress={(e) => {
+                if (e?.key === "Enter") {
+                  sendRequest?.();
+                }
               }}
             >
-              <SelectLabels
-                onChange={(userType) => {
-                  // console.log(userType);
-                  setData({ ...dataa, userType });
+              <InputField
+                placeholder="user name"
+                onChange={(name) => {
+                  setData({ ...dataa, name });
                 }}
               />
-            </div>
+              <InputField
+                placeholder="Email"
+                onChange={(email) => {
+                  setData({ ...dataa, email });
+                }}
+              />
+              <InputField
+                type="password"
+                placeholder="password"
+                onChange={(password) => {
+                  setData({ ...dataa, password });
+                }}
+              />
+              <div
+                style={{
+                  width: "80%",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 20,
+                }}
+              >
+                <SelectLabels
+                  onChange={(userType) => {
+                    // console.log(userType);
+                    setData({ ...dataa, userType });
+                  }}
+                />
+              </div>
+            </form>
+            <h2 className={style.textdontHave}>
+              already have an account
+              <span
+                onClick={() => props?.history?.push?.("login")}
+                className={style.textSignUp}
+              >
+                sign in
+              </span>
+            </h2>
             {errorMessage && (
               <h2 className={style.errorMessage}>{errorMessage}</h2>
             )}
+
             <div
               style={{
                 // marginTop: 10,

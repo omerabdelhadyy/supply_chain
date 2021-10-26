@@ -26,7 +26,9 @@ export const Header = (props) => {
         onClick={() => props?.history?.push?.("home")}
       >
         Supply Chain
-        <span style={{ fontSize: 15, color: "#9592A3" }}> (supplier)</span>
+        <span style={{ fontSize: 15, color: "#9592A3" }}>
+          {`\r`} ( {User?.userType} )
+        </span>
       </h1>
       <div className={style.headerScreen}>
         <h1
