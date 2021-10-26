@@ -15,3 +15,23 @@
   align-items: center;
   padding-bottom: 20px;
 }
+.title {
+  /* background-color: red; */
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  margin-left: 8%;
+}
+.buttonOffer {
+  /* background-color: #3a57a8; */
+  background-color: rgb(67, 71, 109);
+  color: #fff;
+  border: solid 2px;
+  width: 10%;
+  padding-block: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition-duration: 0.6s;
+  border-color: #12245a;
+  font-size: 13px;
+}

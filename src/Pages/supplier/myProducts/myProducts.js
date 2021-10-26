@@ -22,7 +22,16 @@ export const MyProduct = (props) => {
     <>
       <Header title="MyProduct" history={props?.history} />
       <div className={style.continer}>
-        <h1>My Product</h1>
+        <div className={style.title}>
+          <h1 />
+          <h1>My Product</h1>
+          <button
+            onClick={() => props?.history?.push?.("Outcoming")}
+            className={style.buttonOffer}
+          >
+            my request
+          </button>
+        </div>
         {data?.length != 0 ? (
           <div className={style.divCards}>
             {data?.map?.((item, index) => {

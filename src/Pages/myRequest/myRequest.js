@@ -20,7 +20,7 @@ export const MyRequest = (props) => {
     <>
       <Header title="request" history={props?.history} />
       <div className={style.continer}>
-        <h1>my Request</h1>
+        <h1>Product request</h1>
         {data?.length != 0 ? (
           <div className={style.divRequest}>
             {data?.map?.((item, index) => {

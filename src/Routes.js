@@ -6,6 +6,7 @@ import { Home } from "./Pages/home/home";
 import { CreateProduct } from "./Pages/supplier/createProduct/createProduct";
 import { MyProduct } from "./Pages/supplier/myProducts/myProducts";
 import { MyRequest } from "./Pages/myRequest/myRequest";
+import { Outcoming } from "./Pages/outComing/outComing";
 import { getItem } from "./services/storage";
 
 class Routes extends Component {
@@ -27,6 +28,7 @@ class Routes extends Component {
     return (
       <BrowserRouter>
         <Switch>
+          <Route path={"/Outcoming"} component={Outcoming} />
           <Route path={"/request"} component={MyRequest} />
           <Route path={"/MyProduct"} component={MyProduct} />
           // Start supplier pages
