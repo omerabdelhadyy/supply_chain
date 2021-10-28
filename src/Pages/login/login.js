@@ -4,7 +4,7 @@ import { ButtonMaterial } from "../../componnent/button";
 import { InputField } from "../../componnent/input";
 import Cover from "../../assets/image/cover.png";
 import { postService } from "../../services/axios";
-import { setItem } from "../../services/storage";
+import { getItem, setItem } from "../../services/storage";
 import { useHistory } from "react-router-dom";
 
 export const Login = (props) => {
@@ -14,7 +14,11 @@ export const Login = (props) => {
   });
   const history = useHistory();
   const [errorMessage, seterrorMessage] = useState(false);
-  useEffect(() => {
+  useEffect(async () => {
+    if (await getItem?.("userData")?.user) {
+      // alert("You can't login if you are logged in!");
+      props.history.push("/home");
+    }
     console.log("history", history);
     // browserHistory.replace("Home");
   }, []);
@@ -27,8 +31,10 @@ export const Login = (props) => {
         props?.history?.push?.("home");
       })
       .catch((error) => {
-        // console.log(error?.response?.data[0]);
-        seterrorMessage(error?.response?.data?.[0]);
+        console.log("error", error?.response?.data);
+        seterrorMessage(
+          error?.response?.data?.[0] || error?.response?.data?.message
+        );
       });
   };
 

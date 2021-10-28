@@ -16,11 +16,11 @@ export const Home = (props) => {
   useEffect(() => {
     getService("product", [])
       .then((res) => {
-        console.log("res", res?.data?.data);
+        // console.log("res", res?.data?.data);
         setDataa(res?.data?.data);
       })
       .catch((error) => {
-        console.log("error", error?.response?.data);
+        // console.log("error", error?.response?.data);
       });
   }, []);
   useEffect(async () => {

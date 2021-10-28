@@ -8,13 +8,12 @@ export const Header = (props) => {
   const [User, setUser] = useState("");
   const history = useHistory();
   useEffect(async () => {
-    // console.log(await getItem("userData"));
     setUser(await getItem?.("userData")?.user);
   }, []);
 
   const Logout = async () => {
     await removeItem("userData");
-    history.replace({ pathname: "/Login" });
+    history.replace({ pathname: "/login" });
     // history. = 0;
     // props?.history?.push?.("Login");
   };

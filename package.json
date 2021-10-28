@@ -1,6 +1,6 @@
 {
   "name": "supply_chain",
-  "homepage": "https://omerabdelhadyy.github.io/Supplay-Chain",
+  "homepage": "https://omerabdelhadyy.github.io/supply_chain",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,8 +23,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts --max_old_space_size=8192 start",
-    "build": "react-scripts --max_old_space_size=8192 build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
