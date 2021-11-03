@@ -32,6 +32,7 @@ export default function SelectLabels(props) {
         <MenuItem value={"supplier"}>supplier</MenuItem>
         <MenuItem value={"producer"}>producer</MenuItem>
         <MenuItem value={"retailer"}>retailer</MenuItem>
+        <MenuItem value={"transporter"}>transporter</MenuItem>
       </Select>
       {/* <FormHelperText>With label + helper text</FormHelperText> */}
     </FormControl>

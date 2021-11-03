@@ -6,11 +6,20 @@ import style from "./style.module.css";
 
 export const MyRequest = (props) => {
   const [data, setData] = useState(false);
+  const [deliv, setdeliv] = useState(false);
   useEffect(() => {
     getService("request/incoming/pending")
       .then((res) => {
         console.log("res", res?.data);
         setData(res?.data?.data);
+      })
+      .catch((error) => {
+        console.log("error", error?.response?.data);
+      });
+    getService("user/transporter", [])
+      .then((res) => {
+        console.log("restransporter", res?.data);
+        setdeliv(res?.data?.data);
       })
       .catch((error) => {
         console.log("error", error?.response?.data);
@@ -24,7 +33,7 @@ export const MyRequest = (props) => {
         {data?.length != 0 ? (
           <div className={style.divRequest}>
             {data?.map?.((item, index) => {
-              return <CardRequest data={item} index={index} />;
+              return <CardRequest data={item} index={index} deliv={deliv} />;
             })}
           </div>
         ) : (

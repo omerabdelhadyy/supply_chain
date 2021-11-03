@@ -13,28 +13,47 @@ export const Home = (props) => {
   const [select, setSelect] = useState(null);
   const [editNumber, seteditNumber] = useState(false);
   const [numberSelect, setnumberSelect] = useState(false);
-  useEffect(() => {
-    getService("product", [])
-      .then((res) => {
-        // console.log("res", res?.data?.data);
-        setDataa(res?.data?.data);
-      })
-      .catch((error) => {
-        // console.log("error", error?.response?.data);
-      });
-  }, []);
+  const [User, setUser] = useState("");
   useEffect(async () => {
-    setnumberSelect(false);
-    console.log(select?._id);
-    getService(`product/sellers/${select?._id}`)
-      .then((res) => {
-        setnumberSelect(res?.data?.data);
-        console.log("res", res?.data?.data);
-        // setDataa(res?.data?.data);
-      })
-      .catch((error) => {
-        console.log("error", error?.response?.data);
-      });
+    setUser(await getItem?.("userData")?.user);
+    // console.log(User?.userType);
+    if ((await getItem?.("userData")?.user?.userType) == "transporter") {
+      getService("request/transport", [])
+        .then((res) => {
+          console.log("transport", res?.data?.data);
+          // setDataa(res?.data?.data);
+          setDataa(res?.data?.data);
+        })
+        .catch((error) => {
+          console.log("errortransport", error?.response?.data);
+        });
+    } else {
+      getService("product", [])
+        .then((res) => {
+          console.log("reshome", res?.data?.data);
+          setDataa(res?.data?.data);
+        })
+        .catch((error) => {
+          console.log("errorhome", error?.response?.data);
+        });
+    }
+  }, []);
+
+  const sedRequest = () => {};
+
+  useEffect(async () => {
+    // setnumberSelect(false);
+    // console.log(select?._id);
+    // User?.userType != "transporter" &&
+    //   getService(`product/sellers/${select?._id}`)
+    //     .then((res) => {
+    //       setnumberSelect(res?.data?.data);
+    //       console.log("res", res?.data?.data);
+    //       // setDataa(res?.data?.data);
+    //     })
+    //     .catch((error) => {
+    //       console.log("error", error?.response?.data);
+    //     });
   }, [select]);
 
   return (
@@ -43,13 +62,18 @@ export const Home = (props) => {
       {dataa.length ? (
         <div className={style.continer} id="fullheight">
           <div className={style.divTitle}>
-            <h1>All products</h1>
+            <h1>
+              {User?.userType == "transporter"
+                ? "Requests not sent"
+                : "All products"}{" "}
+            </h1>
             <div className={style.line} />
           </div>
           <div style={{ width: "100%", overflow: "auto" }}>
             {dataa.map((item, index) => {
               return (
                 <SupplierProduct
+                  type={User?.userType}
                   key={index}
                   data={item}
                   onClick={() => setSelect(item)}

@@ -1,0 +1,10 @@
+.continer {
+  width: 100%;
+  /* background-color: red; */
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.continer h1 {
+  font-size: 20px;
+}
