@@ -37,3 +37,23 @@
   border-width: 0px;
   border-color: #67676b;
 }
+.divPrivate {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.divPrivate h1 {
+  font-size: 14px;
+}
+.inputPrivate {
+  background-color: #707070;
+  border: solid;
+  border-width: 0ch;
+  border-radius: 6px;
+  padding: 7px;
+  color: #fff;
+  /* width: 20%; */
+}
+::placeholder {
+  /* color: rgb(255, 254, 254); */
+}

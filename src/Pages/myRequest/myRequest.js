@@ -33,7 +33,14 @@ export const MyRequest = (props) => {
         {data?.length != 0 ? (
           <div className={style.divRequest}>
             {data?.map?.((item, index) => {
-              return <CardRequest data={item} index={index} deliv={deliv} />;
+              return (
+                <CardRequest
+                  data={item}
+                  index={index}
+                  deliv={deliv}
+                  key={index}
+                />
+              );
             })}
           </div>
         ) : (

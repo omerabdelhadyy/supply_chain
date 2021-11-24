@@ -7,15 +7,27 @@ export const CardSellers = (props) => {
   const { data, index } = props;
   const [balance, setbalance] = useState(false);
   const [loading, setloading] = useState(false);
+  const [showInputPrivate, setshowInputPrivate] = useState(false);
+  const [PrivateData, setPrivateData] = useState(false);
 
   const sendRequest = () => {
     setloading(true);
-    let body = {
-      productID: data?._id,
-      providerEmail: data?.seller,
-      quantity: Number(balance) || data?.balance,
-    };
-    console.log(body);
+    let body = {};
+    if (PrivateData) {
+      body = {
+        productID: data?._id,
+        providerEmail: data?.seller,
+        quantity: Number(balance) || data?.balance,
+        privateField: PrivateData,
+      };
+    } else {
+      body = {
+        productID: data?._id,
+        providerEmail: data?.seller,
+        quantity: Number(balance) || data?.balance,
+      };
+    }
+    // console.log(body);
     postService("request", body)
       .then((res) => {
         console.log("res", res?.data);
@@ -57,6 +69,23 @@ export const CardSellers = (props) => {
           "Send request"
         )}
       </button>
+      <div className={style.divPrivate}>
+        <h1>private data</h1>
+        <input
+          type="checkbox"
+          onClick={(e) => setshowInputPrivate(!showInputPrivate)}
+        />
+        {showInputPrivate && (
+          <input
+            onChange={(text) => setPrivateData(text.target.value)}
+            className={style.inputPrivate}
+            cols="1"
+            rows="1"
+            type="text"
+            multiple
+          />
+        )}
+      </div>
     </div>
   );
 };

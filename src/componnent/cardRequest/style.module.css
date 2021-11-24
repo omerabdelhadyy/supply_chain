@@ -1,6 +1,6 @@
 .continer {
   margin-top: 2%;
-  width: 30%;
+  width: 40%;
   /* background-color: rgb(196, 189, 189); */
   align-items: center;
   display: flex;
@@ -117,4 +117,16 @@
   border-color: #12245a;
   font-size: 13px;
   margin-top: 20px;
+}
+.divPrivate {
+  /* background-color: red; */
+  /* width: 30%; */
+  border: solid;
+  border-width: 2px;
+  border-color: #12245a;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
 }

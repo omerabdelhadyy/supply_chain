@@ -19,7 +19,7 @@ export const Login = (props) => {
       // alert("You can't login if you are logged in!");
       props.history.push("/home");
     }
-    console.log("history", history);
+    // console.log("history", history);
     // browserHistory.replace("Home");
   }, []);
 

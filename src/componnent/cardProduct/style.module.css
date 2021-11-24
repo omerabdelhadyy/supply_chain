@@ -51,3 +51,15 @@
   border-width: 2px;
   border-color: #67676b;
 }
+.divPrivate {
+  /* background-color: red; */
+  /* width: 30%; */
+  border: solid;
+  border-width: 2px;
+  border-color: #12245a;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
