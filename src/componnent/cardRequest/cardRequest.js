@@ -138,7 +138,7 @@ export const CardRequest = (props) => {
                 <button className={style.buttonReject} onClick={onClickReject}>
                   <CloseIcon />
                 </button>
-                {userType == "retiler" && (
+                {userType == "producer" && (
                   <button
                     className={style.buttondeliv}
                     onClick={() => setShowAvailableDeliv(!showAvailableDeliv)}

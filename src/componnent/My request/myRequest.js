@@ -113,7 +113,13 @@ export const CardRequestProfile = (props) => {
       </div>
       {data ? (
         <div className={style.showDetails}>
-          <CustomizedTables data={data} width="100%" />
+          {data?.length ? (
+            <CustomizedTables data={data} width="100%" />
+          ) : (
+            <h1 style={{ fontSize: 16 }}>
+              The order has not been moved by the carrier
+            </h1>
+          )}
         </div>
       ) : null}
     </>
